@@ -1,0 +1,44 @@
+#app {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+nav {
+  background-color: #80d7c6;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1.2rem;
+}
+
+.content {
+  padding: 5rem;
+}
+
+.router-link-active {
+  font-weight: bold;
+}
+
+body {
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  background-position-y: unset ;
+  margin-top: 0;
+  padding: 0;
+}
+
+body:not(.logged-in) {
+  background-image: url('assets/photos/backgroundnotloggedin.jpg');
+}
+
+body.logged-in {
+  background-image: url('assets/photos/backgroundloggedin.jpg');
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

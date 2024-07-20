@@ -1,0 +1,38 @@
+<div>
+  <h2>MY BOOKED FLIGHTS</h2>
+  <table *ngIf="bookedFlights && bookedFlights.length; else noBookings">
+    <thead>
+    <tr>
+      <th>Flight ID</th>
+      <th>Departure City</th>
+      <th>Arrival City</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Passengers</th>
+      <th>Total Price</th>
+      <th>Airline Company</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let flight of bookedFlights">
+      <td>{{ flight.flightId }}</td>
+      <td>{{ flight.departureCity }}</td>
+      <td>{{ flight.arrivalCity }}</td>
+      <td>{{ flight.flightDate }}</td>
+      <td>{{ flight.flightTime }}</td>
+      <td>{{ flight.bookedSeats }}</td>
+      <td>{{ flight.totalPrice }}</td>
+      <td>{{ flight.airlineCompany }}</td>
+      <td>{{ flight.bookingStatus }}</td>
+      <td>
+        <button mat-raised-button (click)="openPassengerDialog(flight.passengerInfo)">View Passengers</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <ng-template #noBookings>
+    <p>No bookings found.</p>
+  </ng-template>
+</div>

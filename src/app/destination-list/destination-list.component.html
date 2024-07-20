@@ -1,0 +1,26 @@
+<h2 class="card-header">List of Destinations</h2>
+
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Source</th>
+    <th>Destination</th>
+    <th>Price</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let destination of destinations">
+    <td>{{ destination.id }}</td>
+    <td>{{ destination.source }}</td>
+    <td>{{ destination.destination }}</td>
+    <td>{{ destination.price }}</td>
+    <td><button class="btn btn-info" (click)="updateDestination(destination.id)">Edit</button></td>
+    <td><button class="btn btn-danger" (click)="deleteDestination(destination.id)">Delete</button></td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <h2 class="card-header">Available Hotels in {{ location }}</h2>
+  <div *ngIf="hotels.length > 0; else noHotels">
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let hotel of hotels">
+        <div class="hotel-card card h-100">
+          <div class="card-body">
+            <h3 class="card-title">{{ hotel.hotelName }}</h3>
+            <p class="card-text">{{ hotel.location }}</p>
+            <p class="card-text">Rating: {{ hotel.hotelRating }}</p>
+            <p class="card-text"><strong>Price:</strong> {{ hotel.baseFare }} £ per night</p>
+            <p class="card-text"><strong>Total Price:</strong> {{ calculateTotalPrice(hotel.baseFare) }} £</p>
+            <button (click)="openPaymentDialog(hotel)" class="btn btn-primary">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noHotels>
+    <p>No hotels found for the selected location.</p>
+  </ng-template>
+</div>

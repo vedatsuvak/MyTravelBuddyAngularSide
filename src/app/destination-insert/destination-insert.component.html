@@ -1,0 +1,18 @@
+<div>
+  <h2 class="card-header">Insert Destination</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="source">Source:</label>
+      <input type="text" id="source" name="source" [(ngModel)]="destination.source" required>
+    </div>
+    <div>
+      <label for="destination">Destination:</label>
+      <input type="text" id="destination" name="destination" [(ngModel)]="destination.destination" required>
+    </div>
+    <div>
+      <label for="price">Price:</label>
+      <input type="number" id="price" name="price" [(ngModel)]="destination.price" required>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>

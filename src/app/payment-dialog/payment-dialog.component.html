@@ -1,0 +1,21 @@
+<form [formGroup]="paymentForm" (ngSubmit)="submitPayment()">
+  <table>
+    <tr>
+      <td><label>Credit Card Number</label></td>
+      <td><input type="text" formControlName="cardNumber" placeholder="Card Number"></td>
+    </tr>
+    <tr>
+      <td><label>Expiration Date</label></td>
+      <td><input type="text" formControlName="expireDate" placeholder="Expiration Date"></td>
+    </tr>
+    <tr>
+      <td><label>CVV Code</label></td>
+      <td><input type="text" formControlName="cvvCode" placeholder="CVV Code"></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;">
+        <button type="submit">Submit Payment</button>
+      </td>
+    </tr>
+  </table>
+</form>

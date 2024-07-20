@@ -1,0 +1,64 @@
+<h1 class="message">{{ message }}</h1>
+
+<h1 class="card-header bg-primary text-white">User Registration Form</h1>
+
+<form [formGroup]="registrationForm" (ngSubmit)="registerNow()">
+  <table>
+    <tr>
+      <td>User Name:</td>
+      <td>
+        <input type="text" formControlName="username"  [(ngModel)]="user.username" [ngClass]="{'is-invalid': registrationForm.get('username').invalid && registrationForm.get('username').touched, 'is-valid': registrationForm.get('username').valid && registrationForm.get('username').touched}">
+        <div *ngIf="registrationForm.get('username').invalid && registrationForm.get('username').touched" class="invalid-feedback">
+          User Name is required and should match the pattern (letters, numbers, underscores, and hyphens. Length between 5 and 30 characters).
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Full Name:</td>
+      <td>
+        <input type="text" formControlName="fullname" [(ngModel)]="user.fullname" [ngClass]="{'is-invalid': registrationForm.get('fullname').invalid && registrationForm.get('fullname').touched, 'is-valid': registrationForm.get('fullname').valid && registrationForm.get('fullname').touched}">
+        <div *ngIf="registrationForm.get('fullname').invalid && registrationForm.get('fullname').touched" class="invalid-feedback">
+          Full Name is required.
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>
+        <input type="email" formControlName="email"  [(ngModel)]="user.email" [ngClass]="{'is-invalid': registrationForm.get('email').invalid && registrationForm.get('email').touched, 'is-valid': registrationForm.get('email').valid && registrationForm.get('email').touched}">
+        <div *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched" class="invalid-feedback">
+          Email is required and should be a valid email address.
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Phone:</td>
+      <td>
+        <input type="text" formControlName="phone"  [(ngModel)]="user.phone" [ngClass]="{'is-invalid': registrationForm.get('phone').invalid && registrationForm.get('phone').touched, 'is-valid': registrationForm.get('phone').valid && registrationForm.get('phone').touched}">
+        Phone number should be with country code.
+      </td>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td>
+        <input type="password" formControlName="password" [(ngModel)]="user.password" [ngClass]="{'is-invalid': registrationForm.get('password').invalid && registrationForm.get('password').touched, 'is-valid': registrationForm.get('password').valid && registrationForm.get('password').touched}">
+        <div *ngIf="registrationForm.get('password').invalid && registrationForm.get('password').touched" class="invalid-feedback">
+          Password is required and should meet the specified criteria (at least 8 characters long, must contain at least one uppercase letter, one lowercase letter, one digit, and one special character).
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Confirm Password:</td>
+      <td>
+        <input type="password" formControlName="conpassword" [(ngModel)]="conpassword" [ngClass]="{'is-invalid': registrationForm.get('conpassword').invalid && registrationForm.get('conpassword').touched, 'is-valid': registrationForm.get('conpassword').valid && registrationForm.get('conpassword').touched}">
+        <div *ngIf="registrationForm.get('conpassword').invalid && registrationForm.get('conpassword').touched" class="invalid-feedback">
+          Confirm Password is required and should match the password.
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <br>
+
+  <input class="btn btn-primary" type="submit" value="Register">
+</form>

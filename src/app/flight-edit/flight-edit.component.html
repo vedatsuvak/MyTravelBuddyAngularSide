@@ -1,0 +1,33 @@
+<h2 class="card-header">Edit Flight</h2>
+
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<form *ngIf="flight">
+
+    <label>Airline Company:</label>
+    <input type="text" [(ngModel)]="flight.planeName" name="planeName" required>
+
+    <label>Plane Capacity:</label>
+    <input type="number" [(ngModel)]="flight.planeCapacity" name="planeCapacity" required>
+
+    <label>Remaining Seats:</label>
+    <input type="number" [(ngModel)]="flight.remainingSeats" name="remainingSeats" required>
+
+    <label>Date:</label>
+    <input type="date" [(ngModel)]="flight.date" name="date" required>
+
+    <label>Time:</label>
+    <input type="time" [(ngModel)]="flight.time" name="time" required>
+
+    <label>Departure City:</label>
+    <input type="text" [(ngModel)]="flight.departureCity" name="departureCity" required>
+
+    <label>Arrival City:</label>
+    <input type="text" [(ngModel)]="flight.arrivalCity" name="arrivalCity" required>
+
+    <label>Base Fare:</label>
+    <input type="number" [(ngModel)]="flight.baseFare" name="baseFare" required>
+
+
+  <button class="btn btn-primary"  (click)="updateFlight()">Update</button>
+</form>

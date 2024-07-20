@@ -1,0 +1,36 @@
+
+<h1 class="card-header bg-primary text-white">Welcome to the Dashboard, {{ userData?.username }}</h1>
+
+<h1 class="card-header bg-primary text-white">User Profile</h1>
+
+<form>
+<table>
+  <tr>
+    <th>User Name:</th>
+    <th>{{ userData?.username }}</th>
+  </tr>
+  <tr>
+    <th>Full Name:</th>
+    <th>{{ userData?.fullname }}</th>
+  </tr>
+  <tr>
+    <th>Email:</th>
+    <th>{{ userData?.email }}</th>
+  </tr>
+  <tr>
+    <th>Phone:</th>
+    <th>{{ userData?.phone }}</th>
+  </tr>
+  <tr>
+    <th>Password:</th>
+    <th>{{ userData?.password ? "*".repeat(userData.password.length) : '' }}</th>
+  </tr>
+  <tr>
+    <td colspan="2"><input class="btn btn-primary" type="submit" value="Update Your Account" (click)="editUserPage()"></td>
+  </tr>
+  <tr>
+    <td colspan="2"><input class="btn btn-primary" value="Delete Your Account" type="submit" (click)="deleteuser(userData?.id)"></td>
+  </tr>
+</table>
+
+</form>

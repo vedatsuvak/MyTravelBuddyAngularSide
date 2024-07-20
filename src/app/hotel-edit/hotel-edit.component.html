@@ -1,0 +1,25 @@
+<div>
+  <h2 class="card-header">Edit Hotel</h2>
+
+  <form (submit)="onUpdateHotel()">
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" [(ngModel)]="hotel.location" required>
+
+    <label for="hotelName">Hotel Name:</label>
+    <input type="text" id="hotelName" name="hotelName" [(ngModel)]="hotel.hotelName" required>
+
+    <label for="hotelRating">Hotel Rating:</label>
+    <input type="text" id="hotelRating" name="hotelRating" [(ngModel)]="hotel.hotelRating" required>
+
+    <label for="date">Date:</label>
+    <input type="text" id="date" name="date" [(ngModel)]="hotel.date" required>
+
+    <label for="availableRooms">Available Rooms:</label>
+    <input type="number" id="availableRooms" name="availableRooms" [(ngModel)]="hotel.availableRooms" required>
+
+    <label for="baseFare">Base Fare:</label>
+    <input type="number" id="baseFare" name="baseFare" [(ngModel)]="hotel.baseFare" required>
+
+    <button class="btn btn-primary" type="submit">Update Hotel</button>
+  </form>
+</div>

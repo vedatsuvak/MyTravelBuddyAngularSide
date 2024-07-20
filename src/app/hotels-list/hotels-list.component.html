@@ -1,0 +1,32 @@
+<div>
+  <h2 class="card-header">List of Hotels</h2>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Hotel ID</th>
+      <th>Location</th>
+      <th>Hotel Name</th>
+      <th>Rating</th>
+      <th>Date</th>
+      <th>Available Rooms</th>
+      <th>Base Fare</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hotel of hotels">
+      <td>{{ hotel.hotelId }}</td>
+      <td>{{ hotel.location }}</td>
+      <td>{{ hotel.hotelName }}</td>
+      <td>{{ hotel.hotelRating }}</td>
+      <td>{{ hotel.date }}</td>
+      <td>{{ hotel.availableRooms }}</td>
+      <td>{{ hotel.baseFare }}</td>
+      <td><button (click)="updateHotel(hotel.hotelId)">Edit</button></td>
+      <td><button (click)="deleteHotel(hotel.hotelId)">Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

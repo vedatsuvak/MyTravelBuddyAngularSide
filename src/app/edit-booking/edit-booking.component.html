@@ -1,0 +1,41 @@
+<h1 class="card-header">EDIT BOOKING</h1>
+<form>
+  <table>
+    <thead>
+    <th>From</th>
+    <th>To</th>
+    <th>Booking Date</th>
+    <th>Booking Time</th>
+    <th>Cab Type</th>
+    <th>Driver Name</th>
+    <th>Driver Rating</th>
+    <th>Total Price</th>
+    <th>Payment Type</th>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{ myBooking?.source }}</td>
+      <td>{{ myBooking?.destination }}</td>
+      <td><input type="date" name="bookingDate" [(ngModel)]="myBooking.bookingDate" required></td>
+      <td><input type="time" name="bookingTime" [(ngModel)]="myBooking.bookingTime" required></td>
+      <td>{{ myBooking?.cabType }}</td>
+      <td>{{ myBooking?.driverName }}</td>
+      <td>{{ myBooking?.driverRating }}</td>
+      <td>{{ myBooking?.totalPrice }}</td>
+      <td>
+        <select id="paymentType" name="paymentType" [(ngModel)]="myBooking.paymentType" required>
+          <option>Cash On Trip</option>
+          <option>Credit Card</option>
+          <option>Bank Card</option>
+          <option>Debit Transfer</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="9">
+        <input class="btn btn-primary" type="button" value="Update" (click)="updateBooking(myBooking.id, myBooking)">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</form>

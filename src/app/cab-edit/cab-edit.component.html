@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2 class="card-header">Edit Cab</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="cabType">Cab Type</label>
+          <input type="text" class="form-control" id="cabType" [(ngModel)]="cab.cabType" name="cabType" required>
+        </div>
+        <div class="form-group">
+          <label for="driverName">Driver Name</label>
+          <input type="text" class="form-control" id="driverName" [(ngModel)]="cab.driverName" name="driverName" required>
+        </div>
+        <div class="form-group">
+          <label for="driverRating">Driver Rating</label>
+          <input type="number" class="form-control" id="driverRating" [(ngModel)]="cab.driverRating" name="driverRating" required>
+        </div>
+        <div class="form-group">
+          <label for="cabCapacity">Cab Capacity</label>
+          <input type="number" class="form-control" id="cabCapacity" [(ngModel)]="cab.cabCapacity" name="cabCapacity" required>
+        </div>
+        <div class="form-group">
+          <label for="pricePercentage">Price Percentage</label>
+          <input type="number" class="form-control" id="pricePercentage" [(ngModel)]="cab.pricePercentage" name="pricePercentage" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

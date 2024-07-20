@@ -1,0 +1,28 @@
+<div>
+  <h2>MY BOOKED HOTELS</h2>
+  <table *ngIf="bookedHotels && bookedHotels.length; else noBookings">
+    <thead>
+    <tr>
+      <th>Hotel Name</th>
+      <th>Hotel Location</th>
+      <th>Check In Date</th>
+      <th>Check Out Date</th>
+      <th>Booked Rooms</th>
+      <th>Total Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hotel of bookedHotels">
+      <td>{{ hotel.hotelName }}</td>
+      <td>{{ hotel.location }}</td>
+      <td>{{ hotel.checkInDate }}</td>
+      <td>{{ hotel.checkOutDate }}</td>
+      <td>{{ hotel.numberOfRooms }}</td>
+      <td>{{ hotel.totalPrice }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <ng-template #noBookings>
+    <p>No bookings found.</p>
+  </ng-template>
+</div>

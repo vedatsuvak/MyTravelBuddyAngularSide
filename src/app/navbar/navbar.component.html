@@ -1,0 +1,41 @@
+<!-- nav.component.html -->
+
+<div id="app">
+  <nav>
+    <ng-container *ngIf="!isLoggedIn()">
+      <a routerLink="/">Home</a>
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Registration</a>
+      <a routerLink="/about">About</a>
+      <a routerLink="/contact">Contact</a>
+    </ng-container>
+
+    <ng-container *ngIf="isLoggedIn() && username !== 'admin'">
+      <a routerLink="/home">Home</a>
+      <a routerLink="/dashboard">Dashboard</a>
+      <a routerLink="/book-cab">BookCab</a>
+      <a routerLink="/book-flight">BookFlight</a>
+      <a routerLink="/hotelsearch">BookHotel</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="/my-cab-bookings" role="button" id="myBookingsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MyBookings
+        </a>
+        <div class="dropdown-menu" aria-labelledby="myBookingsDropdown">
+          <a class="dropdown-item" routerLink="/my-cab-bookings">My Cab Bookings</a>
+          <a class="dropdown-item" routerLink="/my-flight-bookings">My Flight Bookings</a>
+          <a class="dropdown-item" routerLink="/my-hotel-bookings">My Hotel Bookings</a>
+        </div>
+      </div>
+      <a routerLink="/about">AboutUs</a>
+      <a routerLink="/contact">ContactUs</a>
+      <a (click)="logout()">Logout ({{this.username}})</a>
+    </ng-container>
+
+    <ng-container *ngIf="isLoggedIn() && username === 'admin'">
+      <a routerLink="/adminpanel">Admin Panel</a>
+      <a routerLink="/dashboard">Dashboard</a>
+      <a routerLink="/users-list">Manage Users</a>
+      <a (click)="logout()">Logout ({{ this.username }})</a>
+    </ng-container>
+  </nav>
+</div>

@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <h2 class="card-header">Find a Hotel</h2>
+  <form (ngSubmit)="submitBooking()">
+    <div class="form-group">
+      <label for="location">Please Select a Location: </label>
+      <select class="form-control" id="location" name="location" [(ngModel)]="selectedLocation">
+        <option value="">Select Location</option>
+        <option *ngFor="let city of locations" [value]="city">{{ city }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Date:</label>
+      <p></p>
+      <label for="checkInDate">Check-in:</label>
+      <input type="date" class="form-control" id="checkInDate" name="checkInDate" [(ngModel)]="checkInDate">
+      <p></p>
+      <label for="checkOutDate">Check-out:</label>
+      <input type="date" class="form-control" id="checkOutDate" name="checkOutDate" [(ngModel)]="checkOutDate">
+    </div>
+    <p></p>
+    <button type="submit" class="btn btn-primary">Show Hotels</button>
+  </form>
+</div>

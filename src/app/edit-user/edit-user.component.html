@@ -1,0 +1,56 @@
+<h1 class="card-header bg-primary text-white">Edit Your Account</h1>
+<form [formGroup]="editUserForm" (ngSubmit)="editUser()">
+  <table>
+    <tr>
+      <th><input type="hidden" name="id" formControlName="id"></th>
+    </tr>
+    <tr>
+      <th>User Name:</th>
+      <th>
+        <input type="text" formControlName="username">
+        <div *ngIf="editUserForm.get('username').hasError('required') && editUserForm.get('username').touched">
+          Username is required and should be 5 to 30 characters.
+        </div>
+      </th>
+    </tr>
+    <tr>
+      <th>Full Name:</th>
+      <th>
+        <input type="text" formControlName="fullname">
+        <div *ngIf="editUserForm.get('fullname').hasError('required') && editUserForm.get('fullname').touched">
+          Full Name is required. Please write your full name correctly.
+        </div>
+      </th>
+    </tr>
+    <tr>
+      <th>Email:</th>
+      <th>
+        <input type="email" formControlName="email">
+        <div *ngIf="editUserForm.get('email').hasError('required') && editUserForm.get('email').touched">
+          Email is required. Must be a valid email.
+        </div>
+      </th>
+    </tr>
+    <tr>
+      <th>Phone:</th>
+      <th>
+        <input type="text" formControlName="phone">
+        <div *ngIf="editUserForm.get('phone').hasError('required') && editUserForm.get('phone').touched">
+          Phone is required. Please write with the country code.
+        </div>
+      </th>
+    </tr>
+    <tr>
+      <th>Password:</th>
+      <th>
+        <input type="password" formControlName="password">
+        <div *ngIf="editUserForm.get('password').hasError('required') && editUserForm.get('password').touched">
+          Password is required. Must include at least one capital and one letter, one number, and one special character.
+        </div>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2"><input class="btn btn-primary" type="submit" value="Update"></td>
+    </tr>
+  </table>
+</form>

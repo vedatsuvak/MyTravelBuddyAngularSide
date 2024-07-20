@@ -1,0 +1,28 @@
+<h1 class="message">{{ message }}</h1>
+
+<h1 class="card-header bg-primary text-white">User Login</h1>
+
+<form>
+  <table>
+    <tr>
+      <td>User Name:</td>
+      <td>
+        <input type="text" name="username" [(ngModel)]="user.username" [ngClass]="{'is-invalid': !validateUsername(), 'is-valid': validateUsername() && user.username !== ''}">
+        <div *ngIf="!validateUsername() && user.username !== ''" class="invalid-feedback">
+          User Name is required and should contain only letters and numbers.
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td>
+        <input type="password" name="pwd" [(ngModel)]="user.password" [ngClass]="{'is-invalid': !validatePassword(), 'is-valid': validatePassword() && user.password !== ''}">
+        <div *ngIf="!validatePassword() && user.password !== ''" class="invalid-feedback">
+          Password is required and should meet the specified criteria (at least 8 characters long, containing at least one uppercase letter, one lowercase letter, one digit, and one special character).
+        </div>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <input class="btn btn-primary" type="submit" value="Login" (click)="dologin()">
+</form>

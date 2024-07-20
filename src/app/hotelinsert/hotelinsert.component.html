@@ -1,0 +1,24 @@
+<div>
+  <h2 class="card-header">Add New Hotel</h2>
+  <form [formGroup]="insertForm" (ngSubmit)="onSubmit()">
+    <label for="location">Location:</label>
+    <input type="text" id="location" formControlName="location" placeholder="Location" required>
+
+    <label for="hotelName">Hotel Name:</label>
+    <input type="text" id="hotelName" formControlName="hotelName" placeholder="Hotel Name" required>
+
+    <label for="hotelRating">Hotel Rating:</label>
+    <input type="text" id="hotelRating" formControlName="hotelRating" placeholder="Hotel Rating" required>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" formControlName="date" required>
+
+    <label for="availableRooms">Available Rooms:</label>
+    <input type="number" id="availableRooms" formControlName="availableRooms" placeholder="Available Rooms" required>
+
+    <label for="baseFare">Base Fare:</label>
+    <input type="number" id="baseFare" formControlName="baseFare" placeholder="Base Fare" required>
+
+    <button class="btn btn-primary" type="submit" [disabled]="insertForm.invalid">Add Hotel</button>
+  </form>
+</div>

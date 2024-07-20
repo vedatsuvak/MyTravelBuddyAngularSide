@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <h2 class="card-header">Flight Search Results</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Flight ID</th>
+      <th>Departure</th>
+      <th>Arrival</th>
+      <th>Date</th>
+      <th>Flight Time</th>
+      <th>Price</th>
+      <th>Total Seats</th>
+      <th>Available Seats</th>
+      <th>Airline Company</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngIf="flights && flights.length > 0; else noResults">
+      <tr *ngFor="let flight of flights">
+        <td>{{ flight.flightId }}</td>
+        <td>{{ flight.departureCity }}</td>
+        <td>{{ flight.arrivalCity }}</td>
+        <td>{{ flight.date }}</td>
+        <td>{{ flight.time }}</td>
+        <td>{{ flight.baseFare }}</td>
+        <td>{{ flight.planeCapacity }}</td>
+        <td>{{ flight.remainingSeats }}</td>
+        <td>{{ flight.planeName }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="bookFlight(flight)">Book Flight</button>
+        </td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+  <ng-template #noResults>
+    <p>No flights found for the selected criteria.</p>
+  </ng-template>
+</div>

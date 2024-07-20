@@ -1,0 +1,36 @@
+<h2 class="card-header">List of Flights</h2>
+
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Flight ID</th>
+    <th>Airline Company</th>
+    <th>Plane Capacity</th>
+    <th>Remaining Seats</th>
+    <th>Flight Date</th>
+    <th>Flight Time</th>
+    <th>Departure City</th>
+    <th>Arrival City</th>
+    <th>Base Fare</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let flight of flights">
+    <td>{{ flight.flightId }}</td>
+    <td>{{ flight.planeName }}</td>
+    <td>{{ flight.planeCapacity }}</td>
+    <td>{{ flight.remainingSeats }}</td>
+    <td>{{ flight.date }}</td>
+    <td>{{ flight.time }}</td>
+    <td>{{ flight.departureCity }}</td>
+    <td>{{ flight.arrivalCity }}</td>
+    <td>{{ flight.baseFare }}</td>
+    <td><button class="btn btn-info" (click)="updateFlight(flight.flightId)">Update</button></td>
+    <td><button class="btn btn-danger" (click)="deleteFlight(flight.flightId)">Delete</button></td>
+  </tr>
+  </tbody>
+</table>

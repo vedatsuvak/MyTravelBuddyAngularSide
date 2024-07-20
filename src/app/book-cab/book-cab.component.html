@@ -1,0 +1,74 @@
+<h1 style="color: #ea3b3b">{{message}}</h1>
+<h1 class="card-header">BOOK A CAB</h1>
+<form (ngSubmit)="BookCab()">
+  <table>
+    <thead>
+      <td colspan="4">Please Select Your Trip</td>
+    </thead>
+    <thead>
+      <td><label for="source">From: </label></td>
+      <td>
+        <select id="source" name="source" [(ngModel)]="selectedSource" (change)="distancePirce(); calculatePrice()" required>
+          <option *ngFor="let source of filteredSources">{{ source }}</option>
+        </select>
+      </td>
+      <td><label for="destination">To: </label></td>
+      <td>
+        <select id="destination" name="destination" [(ngModel)]="selectedDestination" (change)="distancePirce(); calculatePrice()" required>
+          <option *ngFor="let destination of filteredDestinations">{{ destination }}</option>
+        </select>
+      </td>
+    </thead>
+
+    <thead>
+      <td colspan="4">Please Select Your Vehicle And Driver:</td>
+    </thead>
+    <thead>
+      <td><label for="cabType">Select Cab Type</label></td>
+      <td>
+        <select id="cabType" name="cabType" [(ngModel)]="selectedCab" (change)="calculatePrice()" required>
+          <option *ngFor="let cabType of filteredCabTypes" [value]="getSelectedCabType(cabType)">
+            {{ cabType }}
+          </option>
+        </select>
+      </td>
+      <td><label for="driverName">Select Driver</label></td>
+      <td>
+        <select id="driverName" name="driverName" [(ngModel)]="selectedDriver" required>
+          <option *ngFor="let driver of detailsForType" [ngValue]="driver">
+            Driver Name: {{ driver.driverName }} -- Driver Rating: {{ driver.driverRating }}
+          </option>
+        </select>
+      </td>
+    </thead>
+    <thead>
+      <td>Booking Date</td>
+      <td><input type="date" name="bookingDate" [(ngModel)]="bookingDate" required></td>
+      <td>Booking Time</td>
+      <td><input type="time" name="bookingTime" [(ngModel)]="bookingTime" required></td>
+    </thead>
+    <thead>
+      <td></td>
+      <td>Payment Type:</td>
+      <td>
+        <select id="paymentType" name="paymentType" [(ngModel)]="paymentType" required>
+          <option>Cash On Trip</option>
+          <option>Credit Card</option>
+          <option>Bank Card</option>
+          <option>Debit Transfer</option>
+        </select>
+      </td>
+      <td></td>
+    </thead>
+    <thead>
+      <td colspan="4">
+        <label for="totalPrice">Total Price</label>
+        <input type="hidden" id="totalPrice" name="totalPrice" [(ngModel)]="totalPrice" readonly>
+        <span style="color: #ea3b3b"> {{ totalPrice }} €</span>
+      </td>
+    </thead>
+    <thead>
+      <td colspan="6"><input class="btn btn-primary" type="submit" value="BookCab"></td>
+    </thead>
+  </table>
+</form>

@@ -1,0 +1,33 @@
+<h2 class="card-header">Cab List</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Cab Type</th>
+    <th>Driver Name</th>
+    <th>Driver Rating</th>
+    <th>Cab Capacity</th>
+    <th>Price Percentage</th>
+    <th>Edit</th>
+    <th>Delete</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let cab of cabs">
+    <td>{{ cab.id }}</td>
+    <td>{{ cab.cabType }}</td>
+    <td>{{ cab.driverName }}</td>
+    <td>{{ cab.driverRating }}</td>
+    <td>{{ cab.cabCapacity }}</td>
+    <td>{{ cab.pricePercentage }}</td>
+    <td>
+      <button (click)="editCab(cab.id)" >Edit</button>
+    </td>
+    <td>
+      <button (click)="deleteCab(cab.id)" >Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

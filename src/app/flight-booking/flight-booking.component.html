@@ -1,0 +1,95 @@
+<div>
+  <h2 class="card-header">Flight Booking</h2>
+  <form [formGroup]="insertForm" (ngSubmit)="submitBooking()">
+    <div>
+      <div>
+        <table>
+          <tr>
+            <td colspan="9">Selected Flight:</td>
+          </tr>
+          <tbody>
+          <tr>
+            <th>Flight ID:</th>
+            <th>Departure City:</th>
+            <th>Arrival City:</th>
+            <th>Date:</th>
+            <th>Time:</th>
+            <th>Passengers:</th>
+            <th>Base Fare:</th>
+            <th>Total Price:</th>
+            <th>Airline Company:</th>
+          </tr>
+          <tr>
+            <td>{{ newFlightBookings.flightId }}</td>
+            <td>{{ newFlightBookings.departureCity }}</td>
+            <td>{{ newFlightBookings.arrivalCity }}</td>
+            <td>{{ newFlightBookings.flightDate }}</td>
+            <td>{{ newFlightBookings.flightTime }}</td>
+            <td>{{ newFlightBookings.bookedSeats }}</td>
+            <td>{{ baseFare }}</td>
+            <td>{{ newFlightBookings.totalPrice }}</td>
+            <td>{{ newFlightBookings.airlineCompany }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div>
+        <h5 class="card-header">Passenger Details</h5>
+        <table>
+          <thead>
+          <tr>
+            <th>Passenger</th>
+            <th>Title</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+          </tr>
+          </thead>
+          <tbody formArrayName="passengerInfo">
+          <tr *ngFor="let passenger of passengerControls; let i = index" [formGroupName]="i">
+            <td>Passenger {{ i + 1 }}</td>
+            <td>
+              <select formControlName="title">
+                <option value="Mr.">Mr.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Child">Child</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" formControlName="firstName">
+            </td>
+            <td>
+              <input type="text" formControlName="lastName">
+            </td>
+            <td>
+              <input type="number" formControlName="age">
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div>
+        <table>
+          <tr>
+            <td class="card-header" colspan="2">Payment Type:</td>
+            <td colspan="3">
+              <select id="paymentMethod" formControlName="paymentMethod" [(ngModel)]="newFlightBookings.paymentMethod" required>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Debit Card">Debit Card</option>
+                <option value="PayPal">PayPal</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td class="card-header" colspan="5"><button type="button" class="btn btn-primary" (click)="openPaymentDialog()">Pay</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </form>
+</div>
