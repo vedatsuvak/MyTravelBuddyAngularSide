@@ -5,7 +5,7 @@ WORKDIR /app
 #copy the package.json
 COPY package*.json package-lock.json ./
 #angular install
-RUN npm install -g @angular/cli
+#RUN npm install -g @angular/cli
 RUN npm install
 #copy the code into the container
 COPY . .
