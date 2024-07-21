@@ -3,7 +3,7 @@ FROM node:21.4.0 as build
 #working directory
 WORKDIR /app
 #copy the package.json
-COPY package*.json package-lock.json ./
+COPY package*.json ./
 #angular install
 #RUN npm install -g @angular/cli
 RUN npm install
@@ -11,7 +11,7 @@ RUN npm install
 COPY . .
 RUN npm run build --prod
 #Serve app on server
-FROM nginx:alpine
+FROM nginx:1.27.0-alpine
 #copy the build file
 COPY --from=build /app/dist/my-cab-buddy /usr/share/nginx/html
 #expose the port
