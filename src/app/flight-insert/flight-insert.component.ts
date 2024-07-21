@@ -62,7 +62,7 @@ export class FlightInsertComponent implements OnInit {
         (response: string) => {
           this.message = response;
           this.toastr.success('Flight inserted successfully', 'Success');
-          this.router.navigate(['/flights-list']);
+          //this.router.navigate(['/flights-list']);
         },
         (error) => {
           console.error('Error inserting flight:', error);

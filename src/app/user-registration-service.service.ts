@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserRegistrationServiceService {
-  private baseUrl = 'http://localhost:8085';
+  private baseUrl = 'http://ec2-3-87-187-41.compute-1.amazonaws.com:8085';
   constructor(private http: HttpClient) { }
   public doregistration(user: any) {
     const httpOptions = {

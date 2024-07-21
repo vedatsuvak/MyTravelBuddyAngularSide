@@ -8,7 +8,7 @@ import { Flights } from './flights.model';
   providedIn: 'root'
 })
 export class FlightService {
-  private baseUrl = 'http://localhost:8089';
+  private baseUrl = 'http://ec2-44-204-181-71.compute-1.amazonaws.com:8089';
 
   constructor(private http: HttpClient) { }
 

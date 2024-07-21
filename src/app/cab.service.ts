@@ -8,7 +8,7 @@ import { Cab } from './cabs.model';
   providedIn: 'root'
 })
 export class CabService {
-  private baseUrl = 'http://localhost:8086';
+  private baseUrl = 'http://ec2-44-204-149-29.compute-1.amazonaws.com:8086';
 
   constructor(private http: HttpClient) { }
 

@@ -8,7 +8,7 @@ import { Hotels } from './hotels.model';
   providedIn: 'root'
 })
 export class HotelsService {
-  private baseUrl = 'http://localhost:8090';
+  private baseUrl = 'http://ec2-18-234-99-129.compute-1.amazonaws.com:8090';
 
   constructor(private http: HttpClient) { }
 

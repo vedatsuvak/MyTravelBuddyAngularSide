@@ -8,7 +8,7 @@ import { Destination } from './destination.model';
   providedIn: 'root'
 })
 export class DestinationService {
-  private baseUrl = 'http://localhost:8087';
+  private baseUrl = 'http://ec2-54-173-212-244.compute-1.amazonaws.com:8087';
 
   constructor(private http: HttpClient) { }
 

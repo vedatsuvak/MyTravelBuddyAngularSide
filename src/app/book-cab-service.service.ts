@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class BookCabServiceService {
-  private baseUrl = 'http://localhost:8088';
+  private baseUrl = 'http://ec2-54-196-61-76.compute-1.amazonaws.com:8088';
 
   constructor(private http: HttpClient) { }
 

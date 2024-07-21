@@ -9,7 +9,7 @@ import {FlightBookingsModel} from "./flight-bookings.model";
   providedIn: 'root'
 })
 export class HotelBookingsService {
-  private baseUrl = 'http://localhost:8092';
+  private baseUrl = 'http://ec2-3-93-248-34.compute-1.amazonaws.com:8092';
 
   constructor(private http: HttpClient) { }
 
